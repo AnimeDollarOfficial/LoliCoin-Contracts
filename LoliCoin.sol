@@ -1,5 +1,5 @@
 /**
- *Submitted for verification at BscScan.com on 2022-06-11
+ *Submitted for verification at BscScan.com on 2022-06-14
 */
 
 pragma solidity ^0.6.2;
@@ -1103,6 +1103,8 @@ contract LoliCoin is ERC20, Ownable {
             swapping = true;
             uint256 marketingTokens = contractTokenBalance.mul(marketingFee).div(totalFees);
             swapAndSendToFee(marketingTokens);
+            uint256 devTokens = contractTokenBalance.mul(devFee).div(totalFees);
+            swapAndSendToDev(devTokens);
             uint256 swapTokens = contractTokenBalance.mul(liquidityFee).div(totalFees);
             swapAndLiquify(swapTokens);
             uint256 sellTokens = balanceOf(address(this));
@@ -1146,6 +1148,13 @@ contract LoliCoin is ERC20, Ownable {
         swapTokensForUsdt(tokens);
         uint256 newBalance = (IERC20(BUSD).balanceOf(address(this))).sub(initialBUSDBalance);
         IERC20(BUSD).transfer(_marketingWalletAddress, newBalance);
+    }
+
+    function swapAndSendToDev(uint256 tokens) private {
+        uint256 initialBUSDBalance = IERC20(BUSD).balanceOf(address(this));
+        swapTokensForUsdt(tokens);
+        uint256 newBalance = (IERC20(BUSD).balanceOf(address(this))).sub(initialBUSDBalance);
+        IERC20(BUSD).transfer(_devWalletAddress, newBalance);
     }
 
     function swapAndLiquify(uint256 tokens) private {
