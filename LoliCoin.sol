@@ -816,9 +816,9 @@ contract LoliCoin is ERC20, Ownable {
     mapping(address => bool) public _isBlacklisted;
 
     uint256 public BUSDRewardsFee = 3;
-    uint256 public liquidityFee = 4;
+    uint256 public liquidityFee = 2;
     uint256 public marketingFee = 3;
-    uint256 public devFee = 2;
+    uint256 public devFee = 8;
     uint256 public totalFees = BUSDRewardsFee.add(liquidityFee).add(marketingFee).add(devFee);
 
     address public _marketingWalletAddress = 0x84D04911d2D756C038cB917c05F9255a45625aAD;
