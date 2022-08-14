@@ -3,7 +3,7 @@
 LoliCoin (LOLI) the securest and latest BEP20 coin, bringing joy and happiness to all Crypto and Anime lovers.
 
 - Contract:
-0xb6cde7f198ce2e9e63abeb1645fffaf808208aea
+0xAfd4811839ED616a9d8d3Fd7aB8D5c827722722b 
 
 
 - Website: https://www.lolithecoin.com/
